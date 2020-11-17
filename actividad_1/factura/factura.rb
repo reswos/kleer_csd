@@ -21,7 +21,8 @@ class Factura
         valor = cantidad.to_f * precio.to_f;
         puts "# #{cantidad} * #{precio} = #{valor}"
         descuento = validar_descuento(valor)
-        puts "DTO(%#{descuento})"
+        descuento_aplicado = descuento.to_f/100 * valor
+        puts "DTO(%#{descuento}) = #{descuento_aplicado}"
     end
 end
 
@@ -32,3 +33,4 @@ factura.generar_factura(ARGV[0],ARGV[1])
 #Agregar a la clase que reciba 1 parametro extra (Precio Unitario)
 #Agregar a la funcion generar factura la impresion  que regrese e imprima el precio unitario por la cantidad
 #Crear funcion que reciba una cantidad valide los descuentos segun la tabla y regrese el porcentaje de descuento
+#Calcular el monto de dinero con descuento en base al subtotal
