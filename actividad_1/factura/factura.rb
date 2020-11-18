@@ -21,7 +21,7 @@ class Factura
     end
 
     def validar_impuesto(estado)
-        @diccionario_impuestos[estado] 
+        return @diccionario_impuestos[estado] 
     end
 
     def generar_factura(cantidad, precio, estado)
@@ -29,10 +29,10 @@ class Factura
         puts "# #{cantidad} * #{precio} = #{valor}"
         impuesto = validar_impuesto(estado)
         impuesto_aplicado = impuesto/100* valor
-        puts "#{estado}(%#{impuesto} = #{impuesto_aplicado}) "
+        puts "#{estado}(%#{impuesto}) = #{impuesto_aplicado.round(2)}"
         descuento = validar_descuento(valor)
         descuento_aplicado = descuento.to_f/100 * valor
-        puts "DTO(%#{descuento}) = #{descuento_aplicado}"
+        puts "DTO(%#{descuento}) = #{descuento_aplicado.round(2)}"
     end
 end
 
@@ -45,4 +45,5 @@ factura.generar_factura(ARGV[0],ARGV[1],ARGV[2])
 #Crear funcion que reciba una cantidad valide los descuentos segun la tabla y regrese el porcentaje de descuento
 #Calcular el monto de dinero con descuento en base al subtotal
 #Agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo
-#Crear funcion que reciba el estado y regrese los impuestos de ese estado
+#Crear funcion que reciba el estado y regrese el porcentaje de impuestos de ese estado
+#Muestra la cantidad de impuestos sobre el valor del pedido
