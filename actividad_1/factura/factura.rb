@@ -1,5 +1,9 @@
 class Factura
 
+    def initialize()
+        @diccionario_impuestos = { "UT" => 6.85, "NV" => 8.00, "TX" => 6.25, "AL" => 4.00, "CA" => 8.25 }
+    end
+
     def validar_descuento(valor)
         if (valor <= 1000)
             return 0
@@ -16,10 +20,16 @@ class Factura
         end
     end
 
+    def validar_impuesto(estado)
+        @diccionario_impuestos[estado] 
+    end
+
     def generar_factura(cantidad, precio, estado)
-        valor = cantidad.to_f * precio.to_f;
+        valor = cantidad.to_f * precio.to_f
         puts "# #{cantidad} * #{precio} = #{valor}"
-        puts "#{estado}()"
+        impuesto = validar_impuesto(estado)
+        impuesto_aplicado = impuesto/100* valor
+        puts "#{estado}(%#{impuesto} = #{impuesto_aplicado}) "
         descuento = validar_descuento(valor)
         descuento_aplicado = descuento.to_f/100 * valor
         puts "DTO(%#{descuento}) = #{descuento_aplicado}"
@@ -35,3 +45,4 @@ factura.generar_factura(ARGV[0],ARGV[1],ARGV[2])
 #Crear funcion que reciba una cantidad valide los descuentos segun la tabla y regrese el porcentaje de descuento
 #Calcular el monto de dinero con descuento en base al subtotal
 #Agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo
+#Crear funcion que reciba el estado y regrese los impuestos de ese estado
