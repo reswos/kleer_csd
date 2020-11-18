@@ -45,13 +45,13 @@ end
 factura = Factura.new
 factura.generar_factura(ARGV[0],ARGV[1],ARGV[2])
 
-#Construir una clase que reciba 1 parametro (Cantidad) un metodo generar factura y lo imprima
-#Agregar a la clase que reciba 1 parametro extra (Precio Unitario)
-#Agregar a la funcion generar factura la impresion  que regrese e imprima el precio unitario por la cantidad
-#Crear funcion que reciba una cantidad valide los descuentos segun la tabla y regrese el porcentaje de descuento
-#Calcular el monto de dinero con descuento en base al subtotal
-#Agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo
-#Crear funcion que reciba el estado y regrese el porcentaje de impuestos de ese estado
-#Muestra la cantidad de impuestos sobre el valor del pedido
-#Agrega validacion si no existe el estado que se ingresa y pone %0.0 de impuestos
-#Muestra el total de la factura aplicando los impuestos y los descuentos
+#Como usuario quiero una clase que reciba 1 parametro (Cantidad) un metodo generar factura y lo imprima para poder verlo
+#Como usuario quiero a la clase que reciba 1 parametro extra (Precio Unitario) para poder verlo
+#Como usuario quiero agregar a la funcion generar factura la impresion  que regrese e imprima el precio unitario por la cantidad para poder conocer el precio bruto
+#Como usuario quiero crear funcion que reciba una cantidad valide los descuentos segun la tabla y regrese el porcentaje de descuento para conocer el descuento
+#Como usuario quiero calcular el monto de dinero con descuento en base al subtotal para conocer el monto con descuento
+#Como usuario quiero agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo para poder verlo
+#Como usuario quiero crear funcion que reciba el estado y regrese el porcentaje de impuestos de ese estado para conocer el % de impuesto
+#Como usuario quiero mostar la cantidad de impuestos sobre el valor del pedido para conocer la cantidad con impuestos
+#Como usuario quiero validar si no existe el estado que se ingresa y si no poner %0.0 de impuestos para manejar el error
+#Como usuario quiero mostrar el total de la factura aplicando los impuestos y los descuentos para ver el total de la factura
