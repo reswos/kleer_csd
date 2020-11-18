@@ -37,6 +37,8 @@ class Factura
         descuento = validar_descuento(valor)
         descuento_aplicado = descuento.to_f/100 * valor
         puts "DTO(%#{descuento}) = #{descuento_aplicado.round(2)}"
+        total=valor+impuesto_aplicado-descuento_aplicado
+        puts "Total = $#{total.round(2)}"
     end
 end
 
@@ -51,4 +53,5 @@ factura.generar_factura(ARGV[0],ARGV[1],ARGV[2])
 #Agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo
 #Crear funcion que reciba el estado y regrese el porcentaje de impuestos de ese estado
 #Muestra la cantidad de impuestos sobre el valor del pedido
-#Agrega validacion si no existe el estado que se ingresa
+#Agrega validacion si no existe el estado que se ingresa y pone %0.0 de impuestos
+#Muestra el total de la factura aplicando los impuestos y los descuentos
