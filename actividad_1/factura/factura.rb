@@ -21,6 +21,10 @@ class Factura
     end
 
     def validar_impuesto(estado)
+        if (!@diccionario_impuestos.has_key?(estado))
+            #Mensaje de error pendiente
+            return 0.0
+        end
         return @diccionario_impuestos[estado] 
     end
 
@@ -47,3 +51,4 @@ factura.generar_factura(ARGV[0],ARGV[1],ARGV[2])
 #Agregar a la funcion generar factura recibir nuevo parametro estado he imprimirlo
 #Crear funcion que reciba el estado y regrese el porcentaje de impuestos de ese estado
 #Muestra la cantidad de impuestos sobre el valor del pedido
+#Agrega validacion si no existe el estado que se ingresa
